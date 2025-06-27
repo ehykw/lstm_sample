@@ -1,6 +1,9 @@
 # lstm_sample
 machine learning lstm sample
 
+Pythonのバージョンは、3.11.4です。
+ターゲットはApple SiliconのMacです。
+
 (0) インストール
 % pip install -r requirement.txt
 
