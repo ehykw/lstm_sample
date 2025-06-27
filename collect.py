@@ -1,11 +1,12 @@
- 
 import mediapipe as mp
 import numpy as np
 import os
 import cv2
+import sys
 
-if (len(sys.argv) == 2):
-    print("コマンド <動画ファイル> <ラベル名>")
+if (len(sys.argv) < 3):
+    print("python collect.py <動画ファイル> <ラベル名>")
+    sys.exit(1)
 label = sys.argv[2]  # <-- ここを変更して別のジェスチャーを収集　ここを15個*5セット程度は用意しないと。
 seq_length = 30
 save_path = f"data/{label}.npy"
