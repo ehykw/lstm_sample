@@ -11,7 +11,7 @@ seq_length = 30
 save_path = f"data/{label}.npy"
 mp_pose = mp.solutions.pose
 pose = mp_pose.Pose()
-cap = cv2.VideoCapture(0)   # 0をファイル名に変えればファイルから動画を読み込む
+cap = cv2.VideoCapture(sys.argv[1])   # 0をファイル名に変えればファイルから動画を読み込む
 sequence = []
 while cap.isOpened():
     ret, frame = cap.read()
