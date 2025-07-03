@@ -40,12 +40,14 @@ while cap.isOpened():
     results = pose.process(image)
     
     if results.pose_landmarks:
+        # ここで正規化
         keypoints = []
         for lm in results.pose_landmarks.landmark:
             keypoints.extend([lm.x, lm.y, lm.z])
         keypoints = normalize_keypoints(keypoints)
         sequence.append(keypoints)
     
+        # 
         if len(sequence) == seq_length:
             data = np.expand_dims(sequence, axis=0)  # (1, 30, 99)
             if os.path.exists(save_path):
