@@ -4,25 +4,16 @@ import cv2
 import mediapipe as mp
 
 
-def preprocessing_train_data(data: List[dict]):
+def preprocessing_train_data(data):
+    print(data)
     output = []
     for datum in data:
-        left_data = np.array(datum["Left"])
-        right_data = np.array(datum["Right"])
+        norm_data = np.array(data)
         label = np.array(datum["Label"])
-        distance_each_data = (left_data - right_data).reshape(
-            -1
-        )  # 右手左手のkeypointsの差分を取る
-        distance_each_data = distance_each_data / np.max(
-            np.abs(distance_each_data)
-        )  # 絶対値最大値で正規化
-        left_data = left_data - left_data[0]  # Keypoints 0からの相対ベクトルを求める
-        right_data = right_data - right_data[0]  # Keypoints 0からの相対ベクトルを求める
+        norm_data = norm_data - norm_data[0]  # Keypoints 0からの相対ベクトルを求める
 
-        left_data = left_data[1:].reshape(-1)  # Keypoints 0を除外する
-        left_data = left_data / np.max(np.abs(left_data))  # 絶対値最大値で正規化
-        right_data = right_data[1:].reshape(-1)
-        right_data = right_data / np.max(np.abs(right_data))  # 最大値で正規化
+        norm_data = data[1:].reshape(-1)  # Keypoints 0を除外する
+        norm_data = norm_data / np.max(np.abs(norm_data))  # 絶対値最大値で正規化
         label = label.reshape(-1)
 
         processed_data = np.concatenate(

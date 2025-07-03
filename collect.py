@@ -14,6 +14,24 @@ mp_pose = mp.solutions.pose
 pose = mp_pose.Pose()
 cap = cv2.VideoCapture(sys.argv[1])   # 0をファイル名に変えればファイルから動画を読み込む
 sequence = []
+
+ 
+def normalize_keypoints(keypoints):
+    keypoints = np.array(keypoints).reshape(-1, 3)  # (33, 3)
+     
+    # 例: 胸の中心（左肩と右肩の中点）を原点に平行移動
+    left_shoulder = keypoints[11]
+    right_shoulder = keypoints[12]
+    center = (left_shoulder + right_shoulder) / 2
+    keypoints -= center  # 中心を原点に
+     
+    # スケール正規化（肩幅を1に）
+    scale = np.linalg.norm(left_shoulder - right_shoulder)
+    if scale > 0:
+        keypoints /= scale
+ 
+    return keypoints.flatten().tolist()  # 元の形式に戻す (1次元リスト)
+
 while cap.isOpened():
     ret, frame = cap.read()
     if not ret:
@@ -25,6 +43,7 @@ while cap.isOpened():
         keypoints = []
         for lm in results.pose_landmarks.landmark:
             keypoints.extend([lm.x, lm.y, lm.z])
+        keypoints = normalize_keypoints(keypoints)
         sequence.append(keypoints)
     
         if len(sequence) == seq_length:
