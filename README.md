@@ -17,6 +17,9 @@ Pythonのバージョンは、3.11.4です。
 
 (2) LSTMでの機械学習
 
+
+python train.py で学習
+
 % python collect.py
 (tfenv) hayakawa@EiichinoMac-mini lstm_sample % python train.py
 [INFO] Loading data from 'data/'...
