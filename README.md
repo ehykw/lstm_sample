@@ -21,6 +21,12 @@ Pythonのバージョンは、3.11.4です。
 python train.py で学習
 dataディレクトリ下にあるラベルごとのデータファイルを読み込んで学習する。
 
+train.pyのmodel.fitでepoch数を指定する。
+```
+model.fit(X_train, y_train, epochs=30, validation_data=(X_test, y_test))
+```
+この例では、3０epochである。学習を30回くりかえすことになる。
+
 ```
 (tfenv) hayakawa@EiichinoMac-mini lstm_sample % python train.py
 [INFO] Loading data from 'data/'...
