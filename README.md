@@ -19,8 +19,9 @@ Pythonのバージョンは、3.11.4です。
 
 
 python train.py で学習
+dataディレクトリ下にあるラベルごとのデータファイルを読み込んで学習する。
 
-% python collect.py
+```
 (tfenv) hayakawa@EiichinoMac-mini lstm_sample % python train.py
 [INFO] Loading data from 'data/'...
 [INFO] Loaded 7 samples across 1 labels.
@@ -89,7 +90,7 @@ Epoch 30/30
 /Users/hayakawa/tfenv/lib/python3.11/site-packages/keras/src/engine/training.py:3000: UserWarning: You are saving your model as an HDF5 file via `model.save()`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')`.
   saving_api.save_model(
 [INFO] Model trained and saved as gesture_lstm.h5
-
+```
 これが出ればモデルの生成が完了。
 
 (3)　検証
