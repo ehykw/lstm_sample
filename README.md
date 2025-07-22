@@ -111,3 +111,12 @@ Epoch 30/30
 
 これで左上に適切なラベルがつけば認識が成功しているはず。
 
+GRUモデルにするときは、モデルファイルを修正する。
+```
+model = tf.keras.models.load_model("gesture_lstm.h5")  #こちらがモデル
+```
+これを、
+```
+model = tf.keras.models.load_model("gesture_gru.h5")  #こちらがモデル
+```
+これに修正
