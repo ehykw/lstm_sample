@@ -2,8 +2,12 @@ import cv2
 import mediapipe as mp
 import numpy as np
 import os
+import sys
 
-label = "wave"
+if (len(sys.argv) < 3):
+    print("python collect2d.py <動画ファイル> <ラベル名>")
+    sys.exit(1)
+label = sys.argv[2]
 seq_length = 30
 save_path = f"data/{label}.npy"
 
@@ -12,7 +16,7 @@ os.makedirs("data", exist_ok=True)
 mp_pose = mp.solutions.pose
 pose = mp_pose.Pose()
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(sys.argv[1])
 sequence = []
 
 def normalize_keypoints_2d(keypoints):

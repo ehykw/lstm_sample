@@ -120,3 +120,16 @@ model = tf.keras.models.load_model("gesture_lstm.h5")  #こちらがモデル
 model = tf.keras.models.load_model("gesture_gru.h5")  #こちらがモデル
 ```
 これに修正
+
+(4) 2Dでの検証（LSTMだけ）
+ポーズ認識だと２次元でも結構いけるのではと思います（3Dだと情報が多すぎるので）。
+
+```
+make allclean
+python collect.py dance.mp4 dance
+python train2d.py ← ここが違う
+python recog2d.py dance.mp4
+```
+
+これでやると100%になるみたいね。
+

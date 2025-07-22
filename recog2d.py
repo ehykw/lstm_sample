@@ -34,7 +34,7 @@ while cap.isOpened():
     if results.pose_landmarks:
         keypoints = []
         for lm in results.pose_landmarks.landmark:
-            keypoints += [lm.x, lm.y, lm.z]
+            keypoints += [lm.x, lm.y]
         sequence.append(keypoints)
         if len(sequence) > seq_length:
             sequence.pop(0)
