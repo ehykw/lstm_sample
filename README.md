@@ -15,7 +15,7 @@ Pythonのバージョンは、3.11.4です。
 
 これを準備した動画する分だけやる。
 
-(2) LSTMでの機械学習
+(2) LSTMでの機械学習/GRUでの機械学習
 
 
 python train.py で学習
@@ -26,6 +26,12 @@ train.pyのmodel.fitでepoch数を指定する。
 model.fit(X_train, y_train, epochs=30, validation_data=(X_test, y_test))
 ```
 この例では、3０epochである。学習を30回くりかえすことになる。
+
+GRUアルゴリズムでも学習できる。それほど時間は変わらない。
+```
+python train_gru.py
+```
+でOK。
 
 ```
 (tfenv) hayakawa@EiichinoMac-mini lstm_sample % python train.py
