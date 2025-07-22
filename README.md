@@ -131,5 +131,7 @@ python train2d.py ← ここが違う
 python recog2d.py dance.mp4
 ```
 
-これでやると100%になるみたいね。
+これでやると100%になるみたいね。学習させるときには、make allcleanとうってファイルをクリアしておくこと。
+
+
 
