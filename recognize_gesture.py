@@ -10,7 +10,7 @@ if (len(sys.argv) == 1):
     sys.exit(0)
     
 # モデルとラベル読み込み
-model = tf.keras.models.load_model("gesture_lstm.h5")  #こちらがモデル
+model = tf.keras.models.load_model("gesture_gru.h5")  #こちらがモデル
 labels = np.load("labels.npy")   # こちらがラベル
 
 # MediaPipe Pose 初期化
