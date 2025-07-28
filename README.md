@@ -1,6 +1,24 @@
 # lstm_sample
 machine learning lstm sample
 
+実験用のコードです。
+
+collect_holistic.py データをHolisticで取得している。
+collect.py 通常のPoseで。
+dance.mp4　サンプルファイル
+dance2.mp4　サンプルファイル２
+data　データディレクトリ
+Makefile　Makefile。クリアするときに利用
+README.md　このファイル
+recog2d.py　2D学習での実行用スクリプト
+recognize_gesture.py　3D学習での実行用スクリプト
+requirement.txt
+train_gru.py　学習アルゴリズムがGRU。
+train_holistic.py　Holisticで学習
+train.py　通常の学習
+train2d.py　2D学習用のスクリプト
+
+
 Pythonのバージョンは、3.11.4です。
 ターゲットはApple SiliconのMacです。
 
