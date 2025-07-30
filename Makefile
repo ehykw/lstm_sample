@@ -1,7 +1,7 @@
 VIDFILES = dance.mp4
 CHECK_FILES = dance.mp4
 LABEL = dance
-allclean:
+clean:
 	-rm *.npy
 	-rm data/*
 	-rm *.h5

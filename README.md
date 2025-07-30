@@ -143,7 +143,7 @@ model = tf.keras.models.load_model("gesture_gru.h5")  #こちらがモデル
 ポーズ認識だと２次元でも結構いけるのではと思います（3Dだと情報が多すぎるので）。
 
 ```
-make allclean
+make clean
 python collect.py dance.mp4 dance
 python train2d.py ← ここが違う
 python recog2d.py dance.mp4
